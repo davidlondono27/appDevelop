@@ -11,7 +11,8 @@ import SwiftUI
 struct Currency_AppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            generalButton(image: "Network")
         }
     }
 }
