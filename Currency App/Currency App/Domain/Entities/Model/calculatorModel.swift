@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct calculatorModel: Codable {
+struct CalculatorModel: Codable {
     let success: Bool
     let query: QueryModel
     let info: Info

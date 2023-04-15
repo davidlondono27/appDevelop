@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct generalButton: View {
-    var image: String
+    var buttonImage: String
     
     var body: some View {
         VStack(){
-            Image(systemName: image)
+            Image(systemName: buttonImage)
                 .font(.system(size: 30))
             Text("Hola")
-                
         }
     }
 }
 
 struct generalButton_Previews: PreviewProvider {
     static var previews: some View {
-        generalButton(image: "network")
+        generalButton(buttonImage: "network")
     }
 }
