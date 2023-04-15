@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var calculator : CurrencyViewModel = CurrencyViewModel()
+    @StateObject var calculatorViewModel: CurrencyViewModel = CurrencyViewModel()
     @State var name = "David"
     @State var inputUser = ""
     @State var query : QueryModel = QueryModel(from: "EUR", to: "USD", amount: 1)
@@ -26,21 +26,12 @@ struct ContentView: View {
                     .padding(.vertical, 20)
                 Spacer()
                 Button {
-                    requestValue(result: &result)
+                    calculatorViewModel.loadData(query: query)
                 } label: {
                     generalButton(buttonImage: ConstantsText.buttonImageExchange, buttonText: ConstantsText.buttonTextExchange)
                 }
                 Spacer()
             }
-    }
-
-    func requestValue(result: inout String) {
-        let calculator = CurrencyViewModel()
-        calculator.loadData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            print("Desde request: \(calculator.currencyResponse)")
-        }
-        result = String(calculator.currencyResponse.result)
     }
 }
 
