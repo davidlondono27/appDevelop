@@ -27,7 +27,7 @@ struct ContentView: View {
                 .padding(.vertical, 20)
             Spacer()
             Button {
-                calculatorViewModel.loadData()
+                calculatorViewModel.loadData(query: query)
                 //requestValue(result: &result)
             } label: {
                 //                    generalButton(buttonImage: "network", buttonText: "Consultar!")
