@@ -22,7 +22,7 @@ struct ContentView: View {
                     .padding(.bottom, 5)
                 Text("Hola!\n Estás consultando \(query.amount) \(query.from) en \(query.to).")
                     .multilineTextAlignment(.center)
-                Text("Resultado: \(result)")
+                Text("Resultado: \(calculatorViewModel.result)")
                     .padding(.vertical, 20)
                 Spacer()
                 Button {
