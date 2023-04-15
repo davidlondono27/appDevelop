@@ -19,8 +19,8 @@ class CurrencyViewModel: ObservableObject {
         var url = URLComponents(string: ConstantsConfiguration.apiEndPoint + ConstantsConfiguration.calculatorEndPoint)
         //TODO: Los valores se deben reemplazar desde la pantalla inicio
         url?.queryItems = [
-            URLQueryItem(name: ConstantsText.to, value: query.from),
-            URLQueryItem(name: ConstantsText.from, value: query.to),
+            URLQueryItem(name: ConstantsText.to, value: query.to),
+            URLQueryItem(name: ConstantsText.from, value: query.from),
             URLQueryItem(name: ConstantsText.amount, value: String(query.amount))
         ]
         let request = headers.headers(url: (url?.url)!, method: ConstantsConfiguration.GET, key: ConstantsConfiguration.apiKey, body: parameters.self)
