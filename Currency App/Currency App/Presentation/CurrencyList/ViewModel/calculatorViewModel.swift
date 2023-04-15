@@ -8,7 +8,9 @@
 import Foundation
 
 class CurrencyViewModel: ObservableObject {
-    @Published var currencyResponse: CalculatorModel = CalculatorModel(success: false, query: QueryModel(from: "", to: "", amount: 0), info: Info(timestamp: 0, rate: 0.0), date: "", result: 0.0)
+    /*
+    @Published var currencyResponse: CalculatorModel = CalculatorModel(success: false, query: QueryModel(from: "", to: "", amount: 0), info: Info(timestamp: 0, rate: 0.0), date: "", result: 0.0)*/
+    @Published var result: Double = 0.0
     @Published var errorResponse = ""
     var headers = Headers()
     var parameters: Data = Data()
@@ -17,8 +19,8 @@ class CurrencyViewModel: ObservableObject {
         var url = URLComponents(string: ConstantsConfiguration.apiEndPoint + ConstantsConfiguration.calculatorEndPoint)
         //TODO: Los valores se deben reemplazar desde la pantalla inicio
         url?.queryItems = [
-            URLQueryItem(name: ConstantsText.to, value: "USD"),
-            URLQueryItem(name: ConstantsText.from, value: "EUR"),
+            URLQueryItem(name: ConstantsText.to, value: "EUR"),
+            URLQueryItem(name: ConstantsText.from, value: "USD"),
             URLQueryItem(name: ConstantsText.amount, value: "1")
         ]
         let request = headers.headers(url: (url?.url)!, method: ConstantsConfiguration.GET, key: ConstantsConfiguration.apiKey, body: parameters.self)
@@ -34,6 +36,7 @@ class CurrencyViewModel: ObservableObject {
                 let responseDataModel = try! JSONDecoder().decode(CalculatorModel.self, from: data)
                 DispatchQueue.main.async {
                     print(responseDataModel)
+                    self.result = responseDataModel.result
                 }
             } else if let _ = data,
                       let httpResponse = response as? HTTPURLResponse,
@@ -41,5 +44,6 @@ class CurrencyViewModel: ObservableObject {
                 self.errorResponse = ConstantsText.errorConnection
             }
         }.resume()
+        
     }
 }
