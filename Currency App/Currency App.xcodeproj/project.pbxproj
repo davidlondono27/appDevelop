@@ -14,6 +14,11 @@
 		1B50EFF329BCE47600030E7E /* Currency_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B50EFF229BCE47600030E7E /* Currency_AppUITests.swift */; };
 		1B50EFF529BCE47600030E7E /* Currency_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B50EFF429BCE47600030E7E /* Currency_AppUITestsLaunchTests.swift */; };
 		1B7C7F6D29BCEFB600498B28 /* Preview Content in Resources */ = {isa = PBXBuildFile; fileRef = 1B7C7F6C29BCEFB600498B28 /* Preview Content */; };
+		1BCCCF9829D9E54A00125DD3 /* calculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCCF9729D9E54A00125DD3 /* calculatorModel.swift */; };
+		1BCCCF9A29D9E5C400125DD3 /* generalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCCF9929D9E5C400125DD3 /* generalButton.swift */; };
+		1BCCCF9C29D9E66800125DD3 /* calculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCCF9B29D9E66800125DD3 /* calculatorViewModel.swift */; };
+		1BCCCF9E29D9E67000125DD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCCF9D29D9E67000125DD3 /* Constants.swift */; };
+		1BCCCFA029D9E67700125DD3 /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCCCF9F29D9E67700125DD3 /* Headers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		1B50EFF229BCE47600030E7E /* Currency_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_AppUITests.swift; sourceTree = "<group>"; };
 		1B50EFF429BCE47600030E7E /* Currency_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1B7C7F6C29BCEFB600498B28 /* Preview Content */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Preview Content"; path = "Currency App/Preview Content"; sourceTree = SOURCE_ROOT; };
+		1BCCCF9729D9E54A00125DD3 /* calculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorModel.swift; sourceTree = "<group>"; };
+		1BCCCF9929D9E5C400125DD3 /* generalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = generalButton.swift; sourceTree = "<group>"; };
+		1BCCCF9B29D9E66800125DD3 /* calculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorViewModel.swift; sourceTree = "<group>"; };
+		1BCCCF9D29D9E67000125DD3 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1BCCCF9F29D9E67700125DD3 /* Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B252DCE29D899D5005786AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1BCCCF9729D9E54A00125DD3 /* calculatorModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B252DD129D89B3E005786AB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1BCCCF9D29D9E67000125DD3 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1B252DD529D89E82005786AB /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				1BCCCF9F29D9E67700125DD3 /* Headers.swift */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		1B50EFCB29BCE47400030E7E = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +180,7 @@
 		1B50F00429BCECBA00030E7E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				1B252DCE29D899D5005786AB /* Model */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -171,6 +206,7 @@
 		1B50F00829BCED2200030E7E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1BCCCF9B29D9E66800125DD3 /* calculatorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				1B50EFD929BCE47500030E7E /* ContentView.swift */,
+				1BCCCF9929D9E5C400125DD3 /* generalButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				1B50F01329BCEEA900030E7E /* Assets */,
+				1B252DD129D89B3E005786AB /* Constants */,
 				1B50F00F29BCEDD200030E7E /* Network */,
 				1B50F00E29BCEDC200030E7E /* PersistantStorage */,
 			);
@@ -226,6 +264,7 @@
 		1B50F00F29BCEDD200030E7E /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				1B252DD529D89E82005786AB /* Headers */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -393,8 +432,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BCCCF9C29D9E66800125DD3 /* calculatorViewModel.swift in Sources */,
+				1BCCCF9829D9E54A00125DD3 /* calculatorModel.swift in Sources */,
 				1B50EFDA29BCE47500030E7E /* ContentView.swift in Sources */,
+				1BCCCF9E29D9E67000125DD3 /* Constants.swift in Sources */,
 				1B50EFD829BCE47500030E7E /* Currency_AppApp.swift in Sources */,
+				1BCCCF9A29D9E5C400125DD3 /* generalButton.swift in Sources */,
+				1BCCCFA029D9E67700125DD3 /* Headers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

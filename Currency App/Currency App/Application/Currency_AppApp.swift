@@ -12,6 +12,7 @@ struct Currency_AppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+//            generalButton(image: "Network")
         }
     }
 }
