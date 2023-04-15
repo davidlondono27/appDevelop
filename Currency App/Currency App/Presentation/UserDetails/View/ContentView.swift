@@ -28,7 +28,7 @@ struct ContentView: View {
                 Button {
                     requestValue(result: &result)
                 } label: {
-//                    generalButton(buttonImage: "network", buttonText: "Consultar!")
+                    generalButton(buttonImage: ConstantsText.buttonImageExchange, buttonText: ConstantsText.buttonTextExchange)
                 }
                 Spacer()
             }

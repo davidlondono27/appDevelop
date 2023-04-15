@@ -13,6 +13,8 @@ class ConstantsText {
     static let from = "from"
     static let amount = "amount"
     static let errorConnection = "Hubo un error de conexión"
+    static let buttonImageExchange = "arrow.left.arrow.right.circle.fill"
+    static let buttonTextExchange = "Consultar!"
 }
 
 class ConstantsConfiguration {
