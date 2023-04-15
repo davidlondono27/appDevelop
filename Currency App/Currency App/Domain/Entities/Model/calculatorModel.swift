@@ -20,7 +20,7 @@ struct CalculatorModel: Decodable {
       case query
       case info
       case date
-      case result
+      case result 
     
     }
     init(from decoder: Decoder) throws {
