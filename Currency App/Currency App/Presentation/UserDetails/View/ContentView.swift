@@ -28,23 +28,13 @@ struct ContentView: View {
             Spacer()
             Button {
                 calculatorViewModel.loadData(query: query)
-                //requestValue(result: &result)
             } label: {
-                //                    generalButton(buttonImage: "network", buttonText: "Consultar!")
                 Text("consultar")
             }
             Spacer()
         }
     }
-    /*
-    func requestValue(result: inout String) {
-        let calculator = CurrencyViewModel()
-         calculator.loadData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            print("Desde request: \(calculator.currencyResponse)")
-        }
-        result = String(calculator.currencyResponse.result)
-    }*/
+
 }
 
 struct ContentView_Previews: PreviewProvider {

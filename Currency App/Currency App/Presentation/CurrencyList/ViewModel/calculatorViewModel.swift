@@ -8,8 +8,6 @@
 import Foundation
 
 class CurrencyViewModel: ObservableObject {
-    /*
-    @Published var currencyResponse: CalculatorModel = CalculatorModel(success: false, query: QueryModel(from: "", to: "", amount: 0), info: Info(timestamp: 0, rate: 0.0), date: "", result: 0.0)*/
     @Published var result: Double = 0.0
     @Published var errorResponse = ""
     var headers = Headers()
