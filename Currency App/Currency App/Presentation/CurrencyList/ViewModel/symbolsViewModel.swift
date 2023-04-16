@@ -21,6 +21,5 @@ class symbolsViewModel: ObservableObject {
         
         let symbols = try? JSONDecoder().decode(symbolsModel.self, from: data!)
         self.symbolsList = (symbols?.symbols)!
-//        print(symbols)
     }
 }
