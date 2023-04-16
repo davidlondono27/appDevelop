@@ -9,29 +9,59 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var calculatorViewModel : CurrencyViewModel = CurrencyViewModel()
-    @State var name = "David"
-    @State var inputUser = ""
+    @StateObject var symbolViewModel : symbolsViewModel = symbolsViewModel()
     @State var query : QueryModel = QueryModel(from: "USD", to: "EUR", amount: 1)
     @State var result = ""
+    @State var toggleSymbols = false
     
     
     var body: some View {
         VStack {
             Spacer()
-            Image(systemName: "dollarsign.circle.fill")
-                .imageScale(.large)
-                .padding(.bottom, 5)
-            Text("Hola!\n Estás consultando \(query.amount) \(query.from) en \(query.to).")
+            HStack {
+                Spacer()
+                Image(systemName: "dollarsign.circle.fill")
+                    .imageScale(.large)
+                    .padding(.horizontal, 30)
+            }
+            Text("\(ConstantsText.currentSearch) \(query.amount) \(query.from) \(ConstantsText.fromAndTo) \(query.to).")
                 .multilineTextAlignment(.center)
-            Text("Resultado: \(calculatorViewModel.result)")
-                .padding(.vertical, 20)
-            Spacer()
+            if calculatorViewModel.result == 0.0 {
+                
+            } else {
+                Text("\(ConstantsText.result) \(calculatorViewModel.result)")
+                    .padding(.vertical, 5)
+            }
             Button {
                 calculatorViewModel.loadData(query: query)
             } label: {
-                Text("consultar")
+                //TODO: Cambiar por General Button
+                Text("Consultar")
+                    .padding(.vertical, 10)
             }
             Spacer()
+            VStack {
+                VStack {
+                    Text(ConstantsText.emptyCurrencies)
+                    Toggle("Sólo simbolos", isOn: $toggleSymbols) // -> Este Toggle cambia entre simbolos y países
+                        .frame(width: 200)
+                }
+                if toggleSymbols {
+                    List(symbolViewModel.symbolsList.keys.sorted(), id: \.self) {symbol in
+                        Text(symbol)
+                    }.frame(height: 500)
+                } else {
+                    List(symbolViewModel.symbolsList.values.sorted(), id: \.self) {symbol in
+                        Text(symbol)
+                    }.frame(height: 500)
+                }
+            }.animation(.easeInOut, value: toggleSymbols) // -> Esta animación suaviza un poco el cambio visual entre simbolos y países
+                .listStyle(.inset) // -> Este es el estilo de lista, pueden cambiarlo por ejemplo a .automatic para que vean la diferencia
+            Spacer()
+            Text("\(ConstantsText.canConvert) \(symbolViewModel.symbolsList.count) \(ConstantsText.worldMoney)")
+                .padding(.bottom, 20)
+                .padding(.horizontal, 10)
+                .lineLimit(2)
         }
     }
 
