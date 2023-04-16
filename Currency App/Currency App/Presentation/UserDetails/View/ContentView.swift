@@ -43,8 +43,13 @@ struct ContentView: View {
             VStack {
                 VStack {
                     Text(ConstantsText.emptyCurrencies)
-                    Toggle("Sólo simbolos", isOn: $toggleSymbols) // -> Este Toggle cambia entre simbolos y países
+                    Toggle(isOn: $toggleSymbols) { // -> Este Toggle cambia entre simbolos y países
+                        Image(systemName: "arrow.counterclockwise.circle.fill")
+                        Text("Sólo simbolos")
+                    }
                         .frame(width: 200)
+                }.onTapGesture {
+                    toggleSymbols.toggle() // -> Hace que el texto superior tambien pueda presionarse
                 }
                 if toggleSymbols {
                     List(symbolViewModel.symbolsList.keys.sorted(), id: \.self) {symbol in
