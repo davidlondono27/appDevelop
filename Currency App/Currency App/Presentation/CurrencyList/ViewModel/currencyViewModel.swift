@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CurrencyViewModel: ObservableObject {
+class currencyViewModel: ObservableObject {
     @Published var result: Double = 0.0
     @Published var errorResponse = ""
     var headers = Headers()
