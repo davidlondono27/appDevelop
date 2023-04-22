@@ -13,6 +13,16 @@ class ConstantsText {
     static let from = "from"
     static let amount = "amount"
     static let errorConnection = "Hubo un error de conexión"
+    static let errorJSON = "Error leyendo el Archivo JSON"
+    static let json = "json"
+    static let null = "Null"
+    static let noExist = "No existe"
+    static let result = "Tu resultado es:"
+    static let canConvert = "Puedes convertir"
+    static let worldMoney = "diferentes monedas del mundo!"
+    static let currentSearch = "Hola! \n Estás consultando"
+    static let fromAndTo = "en"
+    static let emptyCurrencies = "Estas son nuestras divisas disponibles:"
 }
 
 class ConstantsConfiguration {
@@ -21,4 +31,5 @@ class ConstantsConfiguration {
     static let calculatorEndPoint = "exchangerates_data/convert"
     static let POST = "POST"
     static let GET = "GET"
+    static let symbolsPath = "ConstantsSymbols"
 }
