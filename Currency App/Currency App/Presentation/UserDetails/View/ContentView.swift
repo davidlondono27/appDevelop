@@ -11,10 +11,17 @@ struct ContentView: View {
     @StateObject var calculatorViewModel : currencyViewModel = currencyViewModel()
     @StateObject var symbolViewModel : symbolsViewModel = symbolsViewModel()
     @State var result = ""
+    @State var amount = 0
     @State var toggleSymbols = false
     @State var origenCurrency = ""
     @State var destinoCurrency = ""
     @State var query : QueryModel = QueryModel(from: "USD", to: "EUR", amount: 1)
+    
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
     
     
     var body: some View {
@@ -32,7 +39,7 @@ struct ContentView: View {
                     Text(ConstantsText.emptyCurrencies)
                     Toggle(isOn: $toggleSymbols) { // -> Este Toggle cambia entre simbolos y países
                         Image(systemName: "arrow.counterclockwise.circle.fill")
-                        Text("Sólo simbolos")
+                        Text(ConstantsText.soloSimbolos)
                     }
                     .frame(width: 200)
                 }.onTapGesture {
@@ -41,7 +48,7 @@ struct ContentView: View {
                 
                 List {
                     Section {
-                        Picker("Origen", selection: $origenCurrency) {
+                        Picker(ConstantsText.origen, selection: $origenCurrency) {
                             ForEach(symbolViewModel.symbolsList.keys.sorted(), id: \.self){ symbol in
                                 if toggleSymbols {
                                     Text(symbol)
@@ -51,10 +58,10 @@ struct ContentView: View {
                             }
                         }
                     } header: {
-                        Text("Origen")
+                        Text(ConstantsText.origen)
                     }
                     Section {
-                        Picker("Destino", selection: $destinoCurrency) {
+                        Picker(ConstantsText.destino, selection: $destinoCurrency) {
                             ForEach(symbolViewModel.symbolsList.keys.sorted(), id: \.self){ symbol in
                                 if toggleSymbols {
                                     Text(symbol)
@@ -64,18 +71,22 @@ struct ContentView: View {
                             }
                         }
                     } header: {
-                        Text("Destino")
+                        Text(ConstantsText.destino)
                     }
                 }.animation(.easeInOut, value: toggleSymbols) // -> Esta animación suaviza un poco el cambio visual entre simbolos y países
                     .listStyle(.inset) // -> Este es el estilo de lista, pueden cambiarlo por ejemplo a .automatic para que vean la diferencia
                 Text("\(ConstantsText.currentSearch) \(query.amount) \(origenCurrency) \(ConstantsText.fromAndTo) \(destinoCurrency).")
                     .multilineTextAlignment(.center)
+                TextField(ConstantsText.cantidadIngresar, value: $amount, formatter: formatter)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding().keyboardType(.numberPad)
+                    
                 Button {
-                    query = QueryModel(from: origenCurrency, to: destinoCurrency, amount: 1)
+                    query = QueryModel(from: origenCurrency, to: destinoCurrency, amount: amount)
                     calculatorViewModel.loadData(query: query)
                 } label: {
                     //TODO: Cambiar por General Button
-                    Text("Consultar")
+                    Text(ConstantsText.consultar)
                         .padding(.vertical, 10)
                 }
                 if calculatorViewModel.result == 0.0 {

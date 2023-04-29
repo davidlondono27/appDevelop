@@ -23,6 +23,11 @@ class ConstantsText {
     static let currentSearch = "Hola! \n Estás consultando"
     static let fromAndTo = "en"
     static let emptyCurrencies = "Estas son nuestras divisas disponibles:"
+    static let cantidadIngresar = "Ingrese Cantidad"
+    static let origen = "Origen"
+    static let destino = "Destino"
+    static let soloSimbolos = "Sólo simbolos"
+    static let consultar = "Consultar"
 }
 
 class ConstantsConfiguration {
