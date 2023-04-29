@@ -11,10 +11,17 @@ struct ContentView: View {
     @StateObject var calculatorViewModel : currencyViewModel = currencyViewModel()
     @StateObject var symbolViewModel : symbolsViewModel = symbolsViewModel()
     @State var result = ""
+    @State var amount = 1
     @State var toggleSymbols = false
     @State var origenCurrency = ""
     @State var destinoCurrency = ""
     @State var query : QueryModel = QueryModel(from: "USD", to: "EUR", amount: 1)
+    
+    let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
     
     
     var body: some View {
@@ -70,8 +77,12 @@ struct ContentView: View {
                     .listStyle(.inset) // -> Este es el estilo de lista, pueden cambiarlo por ejemplo a .automatic para que vean la diferencia
                 Text("\(ConstantsText.currentSearch) \(query.amount) \(origenCurrency) \(ConstantsText.fromAndTo) \(destinoCurrency).")
                     .multilineTextAlignment(.center)
+                TextField("ingrese cantidad", value: $amount, formatter: formatter)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding().keyboardType(.numberPad)
+                    
                 Button {
-                    query = QueryModel(from: origenCurrency, to: destinoCurrency, amount: 1)
+                    query = QueryModel(from: origenCurrency, to: destinoCurrency, amount: amount)
                     calculatorViewModel.loadData(query: query)
                 } label: {
                     //TODO: Cambiar por General Button
